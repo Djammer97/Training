@@ -26,33 +26,22 @@ public class Airplane {
     }
 
     public void setManufacturer(String manufacturer) {
-        if (manufacturer.isEmpty())
-            System.out.println("Некорректный ввод. Пустая строка");
-        else
-            this.manufacturer = manufacturer;
+        this.manufacturer = manufacturer;
     }
 
     public void setYear(int year) {
-        if (year < 0)
-            System.out.println("Некорректный ввод. Число должно быть больше 0");
         this.year = year;
     }
 
     public void setLength(int length) {
-        if (length < 0)
-            System.out.println("Некорректный ввод. Число должо быть больше 0");
         this.length = length;
     }
 
     public void setWeight(int weight) {
-        if (weight < 0)
-            System.out.println("Некорректный ввод. Число должно быть больше 0");
         this.weight = weight;
     }
 
     public void setFuel(int fuel) {
-        if (fuel < 0)
-            System.out.println("Некорреткный ввод. Число должно быть быльше 0");
         this.fuel = fuel;
     }
 

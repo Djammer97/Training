@@ -6,21 +6,15 @@ public class Car {
     private int year;
 
     public void setModel(String model) {
-        if (model.isEmpty())
-            System.out.println("Некорректный ввод. Введена пустая строка");
-        else this.model = model;
+        this.model = model;
     }
 
     public void setColour(String colour) {
-        if (colour.isEmpty())
-            System.out.println("Некорректный ввод. Введена пустая строка");
-        else this.colour = colour;
+        this.colour = colour;
     }
 
     public void setYear(int year) {
-        if (year < 0)
-            System.out.println("Некорректный ввод. Число должно быть больше нуля");
-        else this.year = year;
+        this.year = year;
     }
 
     public String getModel() {
@@ -40,8 +34,6 @@ public class Car {
     }
 
     public int yearDifference(int inputYear) {
-        if (inputYear > year)
-            return (inputYear - year);
-        else return (year - inputYear);
+        return Math.abs(year - inputYear);
     }
 }

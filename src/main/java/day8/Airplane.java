@@ -26,33 +26,22 @@ public class Airplane {
     }
 
     public void setManufacturer(String manufacturer) {
-        if (manufacturer.isEmpty())
-            System.out.println("Некорректный ввод. Пустая строка");
-        else
-            this.manufacturer = manufacturer;
+        this.manufacturer = manufacturer;
     }
 
     public void setYear(int year) {
-        if (year < 0)
-            System.out.println("Некорректный ввод. Число должно быть больше 0");
         this.year = year;
     }
 
     public void setLength(int length) {
-        if (length < 0)
-            System.out.println("Некорректный ввод. Число должо быть больше 0");
-        this.length = length;
+       this.length = length;
     }
 
     public void setWeight(int weight) {
-        if (weight < 0)
-            System.out.println("Некорректный ввод. Число должно быть больше 0");
-        this.weight = weight;
+       this.weight = weight;
     }
 
     public void setFuel(int fuel) {
-        if (fuel < 0)
-            System.out.println("Некорреткный ввод. Число должно быть быльше 0");
         this.fuel = fuel;
     }
 
@@ -62,9 +51,7 @@ public class Airplane {
 
     @Override
     public String toString() {
-        StringBuilder string = new StringBuilder();
-        string.append("Изготовитель: ").append(manufacturer).append(", год выпуска: ").append(year);
-        string.append(", длина: ").append(length).append(", вес: ").append(weight).append(", количество топлива в баке: ").append(fuel);
-        return string.toString();
+        return "Изготовитель: " + manufacturer + ", год выпуска: " + year +
+                ", длина: " + length + ", вес: " + weight + ", количество топлива в баке: " + fuel;
     }
 }
