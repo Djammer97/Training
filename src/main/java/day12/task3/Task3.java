@@ -6,7 +6,7 @@ import java.util.List;
 
 public class Task3 {
     public static void main(String[] args) {
-        ArrayList<MusicBand> music = new ArrayList<>();
+        List<MusicBand> music = new ArrayList<>();
         music.add(new MusicBand("Nirvana", 1967));
         music.add(new MusicBand("The Cranberries", 1989));
         music.add(new MusicBand("Король и шут", 1988));

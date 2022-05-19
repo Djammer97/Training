@@ -6,7 +6,7 @@ import java.util.List;
 public class MusicBand {
     private String name;
     private int year;
-    ArrayList<String> members = new ArrayList<>();
+    private List<String> members = new ArrayList<>();
 
     public MusicBand(String name, int year) {
         this.name = name;
@@ -16,10 +16,10 @@ public class MusicBand {
     public MusicBand(String name, int year, List<String> members) {
         this.name = name;
         this.year = year;
-        this.members = (ArrayList<String>) members;
+        this.members = members;
     }
 
-    public ArrayList<String> getMembers() {
+    public List<String> getMembers() {
         return members;
     }
 
@@ -27,8 +27,16 @@ public class MusicBand {
         members.add(member);
     }
 
+    public void addMember(List<String> member) {
+        members.addAll(member);
+    }
+
     public void deleteMember(int index) {
         members.remove(index);
+    }
+
+    public void deleteAllMembers(){
+        members.clear();
     }
 
     public int getYear() {
@@ -36,11 +44,8 @@ public class MusicBand {
     }
 
     public static void transferMembers(MusicBand bandFrom, MusicBand bandTo) {
-        List<String> member = bandFrom.getMembers();
-        for (int i = member.size() - 1; i >= 0; i--) {
-            bandTo.addMember(member.get(i));
-            bandFrom.deleteMember(i);
-        }
+        bandTo.addMember(bandFrom.getMembers());
+        bandFrom.deleteAllMembers();
     }
 
     public void printMembers() {

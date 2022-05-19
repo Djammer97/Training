@@ -1,10 +1,11 @@
 package day12;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Task1 {
     public static void main(String[] args) {
-        ArrayList<String> cars = new ArrayList<>();
+        List<String> cars = new ArrayList<>();
         cars.add("Audi");
         cars.add("BMW");
         cars.add("Ford");
