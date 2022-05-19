@@ -7,8 +7,8 @@ import static day13.MessageDatabase.addNewMessage;
 
 public class User {
     private String username;
-    List<User> subscriptions;
-    List<User> friends;
+    private  List<User> subscriptions;
+    private List<User> friends;
 
     public User(String username) {
         this.username = username;
