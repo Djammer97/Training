@@ -1,5 +1,7 @@
 package day11.task2;
 
+import day11.task2.classes.*;
+
 public class Task2 {
     public static void main(String[] args) {
         Warrior warrior = new Warrior();

@@ -1,6 +1,9 @@
-package day11.task2;
+package day11.task2.classes;
 
-public class Shaman extends Hero implements Healer, PhysAttack, MagicAttack{
+import day11.task2.interfaces.Healer;
+import day11.task2.interfaces.MagicAttack;
+
+public class Shaman extends Hero implements Healer, MagicAttack {
     private int magicAtt;
 
     public Shaman(){
@@ -23,11 +26,6 @@ public class Shaman extends Hero implements Healer, PhysAttack, MagicAttack{
     @Override
     public void magicalAttack(Hero hero) {
         hero.getDamage(15, "magic");
-    }
-
-    @Override
-    public void physicalAttack(Hero hero) {
-        hero.getDamage(10, "physical");
     }
 
     @Override

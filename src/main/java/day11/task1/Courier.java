@@ -1,8 +1,12 @@
 package day11.task1;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public class Courier implements Worker {
+    private final int wage = 100;
+    private final int bonusLimit = 10000;
+    private final int bonus = 50000;
+
     private int salary;
     private boolean isPayed;
     private Warehouse warehouse;
@@ -40,8 +44,8 @@ public class Courier implements Worker {
     @Override
     public boolean doWork() {
         warehouse.increaseDeliveredPickedOrders();
-        salary += 100;
-        return (warehouse.getCountDeliveredOrders() == 10000);
+        salary += wage;
+        return (warehouse.getCountDeliveredOrders() == bonusLimit);
     }
 
     @Override
@@ -49,9 +53,9 @@ public class Courier implements Worker {
         if (isPayed) {
             System.out.println("Бонус уже был выплачен");
         } else {
-            if (warehouse.getCountDeliveredOrders() == 10000) {
-                ArrayList<Courier> couriers = warehouse.getCouriers();
-                for (Courier courier : couriers){
+            if (warehouse.getCountDeliveredOrders() == bonusLimit) {
+                List<Courier> couriers = warehouse.getCouriers();
+                for (Courier courier : couriers) {
                     courier.giveBonus();
                 }
             } else {
@@ -61,7 +65,7 @@ public class Courier implements Worker {
     }
 
     public void giveBonus() {
-        salary += 50000;
+        salary += bonus;
         isPayed = true;
     }
 }

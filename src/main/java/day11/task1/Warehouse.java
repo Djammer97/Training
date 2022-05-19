@@ -1,12 +1,13 @@
 package day11.task1;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Warehouse {
     private int countPickedOrders;
     private int countDeliveredOrders;
-    private ArrayList<Courier> couriers = new ArrayList<>();
-    private ArrayList<Picker> pickers = new ArrayList<>();
+    private List<Courier> couriers = new ArrayList<>();
+    private List<Picker> pickers = new ArrayList<>();
 
     public int getCountPickedOrders() {
         return countPickedOrders;
@@ -16,11 +17,11 @@ public class Warehouse {
         return countDeliveredOrders;
     }
 
-    public ArrayList<Courier> getCouriers() {
+    public List<Courier> getCouriers() {
         return couriers;
     }
 
-    public ArrayList<Picker> getPickers() {
+    public List<Picker> getPickers() {
         return pickers;
     }
 

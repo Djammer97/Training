@@ -1,7 +1,5 @@
 package day11.task1;
 
-import java.util.ArrayList;
-
 public class Task1 {
     public static void main(String[] args) {
         Warehouse warehouse1 = new Warehouse();

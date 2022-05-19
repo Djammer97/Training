@@ -1,6 +1,8 @@
-package day11.task2;
+package day11.task2.classes;
 
-public class Paladin extends Hero implements Healer, PhysAttack {
+import day11.task2.interfaces.Healer;
+
+public class Paladin extends Hero implements Healer {
 
     public Paladin() {
         physDef = 50;
@@ -16,11 +18,6 @@ public class Paladin extends Hero implements Healer, PhysAttack {
     @Override
     public void healTeammate(Hero hero) {
         hero.getHealed(10);
-    }
-
-    @Override
-    public void physicalAttack(Hero hero) {
-        hero.getDamage(15, "physical");
     }
 
     @Override

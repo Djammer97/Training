@@ -1,16 +1,11 @@
-package day11.task2;
+package day11.task2.classes;
 
-public class Warrior extends Hero implements PhysAttack {
+public class Warrior extends Hero {
 
     public Warrior() {
         physDef = 80;
         magicDef = 0;
         physAtt = 30;
-    }
-
-    @Override
-    public void physicalAttack(Hero hero) {
-        hero.getDamage(physAtt, "physical");
     }
 
     @Override

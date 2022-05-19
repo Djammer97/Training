@@ -1,8 +1,10 @@
-package day11.task2;
+package day11.task2.classes;
+
+import day11.task2.interfaces.PhysAttack;
 
 import java.util.Objects;
 
-public abstract class Hero {
+public abstract class Hero implements PhysAttack {
     protected int health;
     protected int physDef;
     protected int magicDef;
@@ -31,5 +33,10 @@ public abstract class Hero {
         } else {
             health += heal;
         }
+    }
+
+    @Override
+    public void physicalAttack(Hero hero) {
+        hero.getDamage(physAtt, "physical");
     }
 }
