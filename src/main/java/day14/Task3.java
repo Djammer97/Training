@@ -15,31 +15,26 @@ public class Task3 {
     }
 
     public static List<Person> parseFileToObjList(File file) {
-        List<Person> peoples = new ArrayList<>();
-        Scanner scanner;
-
         try {
-            scanner = new Scanner(file);
+            List<Person> peoples = new ArrayList<>();
+            Scanner scanner = new Scanner(file);
+            while (scanner.hasNextLine()) {
+                String tempLine = scanner.nextLine();
+                String[] people = tempLine.split(" ");
+                tempLine = people[0];
+
+                if (Integer.parseInt(people[1]) < 0) throw new DataFormatException();
+
+                peoples.add(new Person(tempLine, Integer.parseInt(people[1])));
+            }
+            return peoples;
+
         } catch (FileNotFoundException ex) {
             System.out.println("Файл не найден");
-            return null;
+        } catch (DataFormatException ex) {
+            System.out.println("Некорректный входной файл");
         }
 
-        while (scanner.hasNextLine()) {
-            String tempLine = scanner.nextLine();
-            String[] people = tempLine.split(" ");
-            tempLine = people[0];
-            int tempDigit = Integer.parseInt(people[1]);
-
-            if (tempDigit < 0) try {
-                throw new DataFormatException();
-            } catch (DataFormatException ex) {
-                System.out.println("Некорректный входной файл");
-                return null;
-            }
-
-            peoples.add(new Person(tempLine, tempDigit));
-        }
-        return peoples;
+        return null;
     }
 }
