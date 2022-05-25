@@ -7,64 +7,40 @@ import java.util.Scanner;
 
 public class Task1 {
     public static void main(String[] args) {
-        String OldPath = "C:" + File.separator + "JavaMarathon2021" + File.separator +
-                "src" + File.separator + "main" + File.separator + "resources" + File.separator + "shoes.csv";
-        File oldFile = new File(OldPath);
-
-        String newPath = "C:" + File.separator + "JavaMarathon2021" + File.separator +
-                "src" + File.separator + "main" + File.separator + "resources" + File.separator + "missing_shoes.txt";
-        File resultFile = new File(newPath);
-
-        PrintWriter printWriter = null;
-
         try {
-            printWriter = new PrintWriter(resultFile);
-        } catch (FileNotFoundException e) {
-            System.out.println("Итоговый файл не найден");
-        }
+            String OldPath = "C:" + File.separator + "JavaMarathon2021" + File.separator +
+                    "src" + File.separator + "main" + File.separator + "resources" + File.separator + "shoes.csv";
+            File oldFile = new File(OldPath);
 
-        Scanner scanner = null;
+            String newPath = "C:" + File.separator + "JavaMarathon2021" + File.separator +
+                    "src" + File.separator + "main" + File.separator + "resources" + File.separator + "missing_shoes.txt";
+            File resultFile = new File(newPath);
 
-        if (oldFile.length() == 0) try {    //Проверка исходного файла на пустоту
-            throw new Exception();
-        } catch (Exception e) {
-            System.out.println("Исходный файл - пустой");
-        }
-        else {
-            try {
-                scanner = new Scanner(oldFile);
-            } catch (
-                    FileNotFoundException e) {
-                System.out.println("Исходный файл не найден");
-            }
-        }
+            PrintWriter printWriter = new PrintWriter(resultFile);
 
-        if (scanner != null && printWriter != null) {
+            if (oldFile.length() == 0) throw new Exception();
+
+            Scanner scanner = new Scanner(oldFile);
             while (scanner.hasNextLine()) {
                 String tempLine = scanner.nextLine();
 
-                try {
-                    String[] shoes = tempLine.split(";");
+                String[] shoes = tempLine.split(";");
 
-                    if (shoes.length != 3) { //Проверка, что в файле 3 колонки
-                        throw new Exception();
-                    }
+                if (shoes.length != 3) throw new Exception();
 
-                    if (Integer.parseInt(shoes[1]) <= 0) { //Проверка, что вторая колонка - размер (положительное число)
-                        throw new Exception();
-                    }
+                if (Integer.parseInt(shoes[1]) <= 0) throw new Exception();
 
-                    if (Integer.parseInt(shoes[2]) == 0) {
-                        printWriter.println(shoes[0] + ", " + shoes[1] + ", " + shoes[2]);
-                    }
-                } catch (Exception e) {
-                    System.out.println("Ошибка формата данных");
-                    break;
+                if (Integer.parseInt(shoes[2]) == 0) {
+                    printWriter.println(shoes[0] + ", " + shoes[1] + ", " + shoes[2]);
                 }
 
+                scanner.close();
+                printWriter.close();
             }
-            scanner.close();
-            printWriter.close();
+        } catch (FileNotFoundException e) {
+            System.out.println("Файл не найден");
+        } catch (Exception ex) {
+            System.out.println("Ошибка исходного файла");
         }
     }
 }

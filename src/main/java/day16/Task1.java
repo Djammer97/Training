@@ -11,27 +11,26 @@ public class Task1 {
     }
 
     public static void printResult(File file) {
-        Scanner scanner = null;
         try {
-            scanner = new Scanner(file);
+            Scanner scanner = new Scanner(file);
+
+            int amount = 0;
+            int summ = 0;
+
+            while (scanner.hasNextInt()) {
+                int temp = scanner.nextInt();
+                summ += temp;
+                amount++;
+            }
+
+            scanner.close();
+            double avg = (double) summ / amount;
+
+            System.out.print(avg);
+            System.out.printf(" --> %.3f", avg);
         } catch (FileNotFoundException e) {
             System.out.println("Не найден исходный файл");
         }
-
-        int amount = 0;
-        int summ = 0;
-
-        while (scanner.hasNextInt()) {
-            int temp = scanner.nextInt();
-            summ += temp;
-            amount++;
-        }
-
-        scanner.close();
-        double avg = (double) summ / amount;
-
-        System.out.print(avg);
-        System.out.printf(" --> %.3f", avg);
     }
 }
 

@@ -2,10 +2,10 @@ package day17;
 
 public class Task2 {
     public static void main(String[] args) {
-        final int SIZE = 8;
-        ChessPiece[][] chess = new ChessPiece[SIZE][SIZE];
-        for (int i = 0; i < SIZE; i++) {
-            for (int j = 0; j < SIZE; j++) {
+        final int size = 8;
+        ChessPiece[][] chess = new ChessPiece[size][size];
+        for (int i = 0; i < size; i++) {
+            for (int j = 0; j < size; j++) {
                 chess[i][j] = ChessPiece.EMPTY;
             }
         }
