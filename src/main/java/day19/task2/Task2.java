@@ -16,9 +16,10 @@ public class Task2 {
                 cars.put(Integer.parseInt(scanner.next()), new Point(Integer.parseInt(scanner.next()), Integer.parseInt(scanner.next())));
             }
             System.out.println("Введите координаты первой точки:");
-            Point point1 = pointIn();
+            Scanner scannerConsole = new Scanner(System.in);
+            Point point1 = pointIn(scannerConsole);
             System.out.println("Введите координаты второй точки:");
-            Point point2 = pointIn();
+            Point point2 = pointIn(scannerConsole);
             if (point1.equals(point2)) {
                 throw new Exception();
             }
@@ -39,12 +40,11 @@ public class Task2 {
         } catch (FileNotFoundException e) {
             System.out.println("Файл не неайден");
         } catch (Exception e) {
-            System.out.println("Некорректный ввод");
+            e.getMessage();
         }
     }
 
-    public static Point pointIn() throws Exception {
-        Scanner scanner = new Scanner(System.in);
+    public static Point pointIn(Scanner scanner) throws Exception {
         int x;
         System.out.print("x: ");
         x = scanner.nextInt();

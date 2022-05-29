@@ -24,29 +24,18 @@ public class Task1 {
                     words.put(temp, words.get(temp) + 1);
                 }
             }
-            Map<String, Integer> copyMap = new HashMap<>(words);
-            Map<String, Integer> top = new HashMap<>();
-            while (true) {
-                Map<String, Integer> tempMap = new HashMap<>();
-                for (Map.Entry<String, Integer> number : copyMap.entrySet()) {
-                    if (number.getValue() == Collections.max(copyMap.values())) {
-                        tempMap.put(number.getKey(), number.getValue());
+            for (int i = 0; i < size; i++) {
+                int tempNumber = 0;
+                String tempString = null;
+                for (Map.Entry<String, Integer> word : words.entrySet()) {
+                    if (word.getValue() > tempNumber) {
+                        tempNumber = word.getValue();
+                        tempString = word.getKey();
                     }
                 }
-                for (Map.Entry<String, Integer> delete : tempMap.entrySet()) {
-                    copyMap.remove(delete.getKey());
-                }
-                for (Map.Entry<String, Integer> maxNumber : tempMap.entrySet()) {
-                    top.put(maxNumber.getKey(), maxNumber.getValue());
-                    if (top.size() == size) {
-                        break;
-                    }
-                }
-                if (top.size() == size) {
-                    break;
-                }
+                words.remove(tempString);
+                System.out.println(tempString + " - " + tempNumber);
             }
-            System.out.println(top);
             //Чичиков - 601
         } catch (FileNotFoundException e) {
             System.out.println("Файл не найден");
